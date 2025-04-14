@@ -1,0 +1,7 @@
+*.json
+ngrok.exe
+*.db
+.venv
+.env
+.pytest_cache
+__pycache__

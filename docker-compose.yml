@@ -1,0 +1,32 @@
+services:
+
+  bot:
+    container_name: webhooksbot
+    image: webhooksbot
+    environment:
+      - URL=https://6aab-193-38-235-188.ngrok-free.app
+      - TOKEN=6480900669:AAErmL3Q6OXOUKaXStfnrIbkrOvdtxEq-XA
+      - HOST=bot
+    volumes:
+      - ./app:/app
+    ports:
+      - "23456:23456"
+
+
+  web:
+    image: nginx:latest
+    volumes:
+      - ./volumes/nginx/nginx.conf:/etc/nginx/nginx.conf
+    expose:
+          - 8080
+    ports:
+      - "9000:80"
+    depends_on:
+      - bot
+    environment:
+      - NGINX_HOST=web
+      - NGINX_PORT=80
+      - DOMAIN=foobar.local
+networks:
+  default:
+    driver: bridge
