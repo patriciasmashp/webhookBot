@@ -5,7 +5,7 @@ services:
     image: webhooksbot
     environment:
       - URL=https://6aab-193-38-235-188.ngrok-free.app
-      - TOKEN=6480900669:AAErmL3Q6OXOUKaXStfnrIbkrOvdtxEq-XA
+      - TOKEN=
       - HOST=bot
     volumes:
       - ./app:/app
